@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useMemo } from "react";
 import cn from "classnames";
 
 type NativeInputProps = React.DetailedHTMLProps<
@@ -15,6 +15,7 @@ export type InputProps = {
   name: string;
   value?: string;
   disabled?: boolean;
+  errorMessage?: ReactNode;
   helperText?: ReactNode;
   variant?: InputVariant;
 } & Omit<NativeInputProps, "placeholder">;
@@ -25,8 +26,7 @@ const inputVariantStyles: Record<
 > = {
   primary: {
     input: "focus:border-primary border-gray-200",
-    label:
-      "text-primary peer-focus:text-primary peer-placeholder-shown:text-gray",
+    label: "text-gray peer-focus:text-primary peer-placeholder-shown:text-gray",
   },
   success: {
     input: "border-secondary",
@@ -52,12 +52,20 @@ const Input = ({
   disabled,
   value,
   helperText,
+  errorMessage,
   variant = "primary",
   ...inputProps
 }: InputProps) => {
-  const styles = disabled
-    ? inputVariantStyles["disabled"]
-    : inputVariantStyles[variant];
+  const styles = useMemo(() => {
+    if (disabled) {
+      return inputVariantStyles.disabled;
+    }
+    if (errorMessage) {
+      return inputVariantStyles.danger;
+    }
+    return inputVariantStyles[variant];
+  }, []);
+
   return (
     <div className="relative z-0 w-full">
       <input
@@ -66,7 +74,8 @@ const Input = ({
         {...inputProps}
         disabled={disabled}
         value={value}
-        placeholder=""
+        // NOTE: Need to be empty space, to work property on IOS
+        placeholder=" "
         className={cn(
           "peer mt-0 block w-full appearance-none border-2  rounded bg-transparent px-3 pb-1 pt-6 focus:outline-none focus:ring-0 ",
           { "pr-12": !!suffix },
@@ -104,8 +113,17 @@ const Input = ({
       >
         {label}
       </label>
+
+      {!!errorMessage && (
+        <span className="p-2 mt-0.5 rounded bg-red-50 block text-xs text-red-700  ">
+          {errorMessage}
+        </span>
+      )}
+
       {!!helperText && (
-        <span className="text-xs text-gray-LIGHT">{helperText}</span>
+        <div className=" block mt-0.5 text-xs text-gray-LIGHT">
+          {helperText}
+        </div>
       )}
     </div>
   );

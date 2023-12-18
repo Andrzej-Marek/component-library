@@ -1,19 +1,54 @@
-import React from "react";
+import classNames from "classnames";
+import React, { ReactNode } from "react";
 
+export type ButtonVariant =
+  | "primary"
+  | "primary-outline"
+  | "secondary"
+  | "secondary-outline";
+
+export type ButtonSize = "default" | "large" | "small";
 export interface ButtonProps extends React.ComponentProps<"button"> {
-  kind?: "primary" | "secondary";
+  children: ReactNode;
+  size?: ButtonSize;
+  variant?: ButtonVariant;
 }
 
+const sizesStyles: Record<ButtonSize, { button: string }> = {
+  small: { button: "text-sm py-2.5 px-5" },
+  large: { button: "py-4 px-5 " },
+  default: { button: "py-3 px-5 " },
+};
+
+// link: "text-primary underline-offset-4 hover:underline",
+const variantStyles: Record<ButtonVariant, { button: string }> = {
+  primary: { button: "bg-primary text-light" },
+  secondary: { button: "bg-secondary text-light" },
+  "primary-outline": {
+    button: "bg-transparent border-primary border-2 text-primary",
+  },
+  "secondary-outline": {
+    button: "bg-transparent border-secondary border-2 text-secondary",
+  },
+};
+
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ kind = "primary", ...props }, ref) => {
+  ({ variant = "primary", children, size = "default", ...props }, ref) => {
+    const styles = variantStyles[variant];
+    const sizes = sizesStyles[size];
     return (
       <button
-        data-button={`kind:${kind}`}
+        data-button={`variant:${variant}`}
         ref={ref}
         {...props}
-        className=" text-red-500 bg-yellow-300 py-3"
+        className={classNames(
+          "group  relative rounded overflow-hidden min-w-[100px] ",
+          styles.button,
+          sizes.button
+        )}
       >
-        {props.children}
+        {children}
+        <div className="absolute inset-0 h-full w-full scale-0 rounded transition-all duration-300 group-hover:scale-100 group-hover:bg-light/30"></div>
       </button>
     );
   }

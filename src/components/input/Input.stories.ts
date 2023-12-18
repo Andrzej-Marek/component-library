@@ -13,6 +13,7 @@ const meta = {
   args: {
     variant: "primary",
   },
+
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
@@ -42,6 +43,14 @@ export const Danger: Story = {
     label: "Storybook",
     name: "danger",
     variant: "danger",
+  },
+};
+
+export const Error: Story = {
+  args: {
+    label: "Error",
+    name: "error",
+    errorMessage: "Invalid field try to fix it",
   },
 };
 

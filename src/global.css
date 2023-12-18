@@ -16,7 +16,7 @@ textarea:focus ~ label,
 textarea:not(:placeholder-shown) ~ label,
 select:focus ~ label,
 select:not([value=""]):valid ~ label {
-  @apply transform scale-75 -translate-y-3.5;
+  @apply transform scale-75 -translate-y-3.5 opacity-100;
   /* --tw-translate-x: 0;
   --tw-translate-y: 0;
   --tw-rotate: 0;
@@ -30,10 +30,9 @@ select:not([value=""]):valid ~ label {
   --tw-translate-y: -1rem; */
 }
 
-input:focus ~ label,
+/* input:focus ~ label,
 select:focus ~ label {
-  /* @apply text-primary left-0; */
-  --tw-text-opacity: 1;
-}
+
+} */
 
 /* input:placeholder-shown ~ label {} */

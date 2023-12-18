@@ -39,7 +39,7 @@ const inputVariantStyles: Record<
     suffix: "text-gray-LIGHT",
   },
   danger: {
-    input: "border-red-500",
+    input: "border-red-500 bg-red-100/20",
     label: "text-red-500",
   },
 };

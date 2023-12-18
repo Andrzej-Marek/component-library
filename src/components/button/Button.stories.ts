@@ -10,15 +10,25 @@ const meta = {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
   },
+
   argTypes: {
+    icon: {
+      control: "radio",
+      options: ["academic-cap"],
+      defaultValue: "academic-cap",
+    },
+    disabled: {
+      control: "boolean",
+      defaultValue: false,
+    },
     size: {
       control: "radio",
-      options: ["default", "large"],
-      defaultValue: "primary",
+      options: ["default", "large", "small"],
+      defaultValue: "default",
     },
     variant: {
       control: "radio",
-      options: ["primary", "secondary"],
+      options: ["primary", "secondary", "secondary-outline", "primary-outline"],
       defaultValue: "primary",
     },
   },
@@ -34,6 +44,20 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     children: "Primary button",
+  },
+};
+
+export const PrimaryIcon: Story = {
+  args: {
+    children: "Primary button",
+    icon: "academic-cap",
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    children: "Disabled button",
+    disabled: true,
   },
 };
 

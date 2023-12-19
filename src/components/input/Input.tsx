@@ -76,7 +76,7 @@ const Input = ({
         // NOTE: Need to be empty space, to work property on IOS
         placeholder=" "
         className={cn(
-          "peer mt-0 block w-full appearance-none border-2  rounded bg-transparent px-3 pb-1 pt-6 focus:outline-none focus:ring-0 ",
+          "peer mt-0 block w-full appearance-none border-2  rounded bg-transparent px-3 pb-1 pt-6 focus:outline-none focus:ring-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none",
           { "pr-12": !!suffix },
           { "pl-6": !!prefix },
           styles.input

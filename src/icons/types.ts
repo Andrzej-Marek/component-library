@@ -1,3 +1,3 @@
-export type IconCommonProp = {
+export type CommonIconProp = {
   className?: string;
 };

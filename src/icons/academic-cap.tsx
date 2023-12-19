@@ -1,8 +1,8 @@
 import React from "react";
-import { IconCommonProp } from "./types";
+import { CommonIconProp } from "./types";
 import classNames from "classnames";
 
-const AcademicCap = ({ className }: IconCommonProp) => (
+const AcademicCap = ({ className }: CommonIconProp) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"

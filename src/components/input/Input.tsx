@@ -25,11 +25,11 @@ const inputVariantStyles: Record<
   { input: string; label: string; prefix?: string; suffix?: string }
 > = {
   primary: {
-    input: "focus:border-primary border-gray-200",
+    input: "focus:border-primary border-gray-200 focus:bg-primary/10",
     label: "text-gray peer-focus:text-primary peer-placeholder-shown:text-gray",
   },
   success: {
-    input: "border-secondary",
+    input: "border-secondary focus:bg-secondary/10",
     label: "text-secondary",
   },
   disabled: {

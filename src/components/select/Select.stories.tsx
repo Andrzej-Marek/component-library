@@ -55,3 +55,20 @@ export const Primary: Story = {
     options: sampleOptions,
   },
 };
+export const PrimaryValue: Story = {
+  args: {
+    name: "select",
+    value: "Stockholm",
+    label: "Label",
+    options: sampleOptions,
+  },
+};
+export const PrimaryMulti: Story = {
+  args: {
+    name: "select",
+    label: "Label",
+    isMulti: true,
+    value: ["Stockholm", "Alajärvi"],
+    options: sampleOptions,
+  },
+};

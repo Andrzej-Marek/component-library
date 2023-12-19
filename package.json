@@ -34,6 +34,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "storybook": "8.0.0-alpha.3",
+    "tailwind-merge": "2.1.0",
     "tailwindcss": "3.3.6",
     "tailwindcss-animate": "1.0.7",
     "typescript": "5.3.3",
@@ -43,7 +44,7 @@
     "@Andrzej-Marek:registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
-    "classnames": "2.3.2",
+    "clsx": "2.0.0",
     "react-select": "5.8.0"
   }
 }

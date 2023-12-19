@@ -1,5 +1,5 @@
 import React, { ReactNode, useMemo } from "react";
-import cn from "classnames";
+import { cn } from "../../lib/utils/cn";
 
 type NativeInputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -12,7 +12,6 @@ export type InputProps = {
   suffix?: ReactNode;
   prefix?: ReactNode;
   label: ReactNode;
-  name: string;
   value?: string;
   disabled?: boolean;
   errorMessage?: ReactNode;

@@ -1,7 +1,8 @@
-import classNames from "classnames";
 import React, { ReactNode } from "react";
 import Icon from "../icon/Icon";
 import { IconVariant } from "../icon/icon-list";
+import { cn } from "../../lib/utils/cn";
+import { CommonSize } from "../../lib/types/componet-size";
 
 export type ButtonVariant =
   | "primary"
@@ -9,7 +10,7 @@ export type ButtonVariant =
   | "secondary"
   | "secondary-outline";
 
-export type ButtonSize = "default" | "large" | "small";
+export type ButtonSize = CommonSize;
 export interface ButtonProps extends React.ComponentProps<"button"> {
   children: ReactNode;
   size?: ButtonSize;
@@ -19,8 +20,8 @@ export interface ButtonProps extends React.ComponentProps<"button"> {
 
 const sizesStyles: Record<ButtonSize, { button: string; icon: string }> = {
   small: { button: "text-sm py-2.5 px-5", icon: "w-4 h-4" },
-  large: { button: "py-4 px-5 ", icon: "w-6 h-6" },
   default: { button: "py-3 px-5 ", icon: "w-6 h-6" },
+  large: { button: "py-4 px-5 ", icon: "w-6 h-6" },
 };
 
 // link: "text-primary underline-offset-4 hover:underline",
@@ -48,7 +49,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         role="button"
         ref={ref}
         {...props}
-        className={classNames(
+        className={cn(
           "group flex gap-2 items-center relative rounded overflow-hidden min-w-[100px] ",
           {
             "cursor-not-allowed opacity-30": !!props.disabled,

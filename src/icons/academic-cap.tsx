@@ -1,6 +1,6 @@
 import React from "react";
 import { CommonIconProp } from "./types";
-import classNames from "classnames";
+import { cn } from "../lib/utils/cn";
 
 const AcademicCap = ({ className }: CommonIconProp) => (
   <svg
@@ -9,7 +9,7 @@ const AcademicCap = ({ className }: CommonIconProp) => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className={classNames("w-6 h-6", className)}
+    className={cn("w-6 h-6", className)}
   >
     <path
       strokeLinecap="round"

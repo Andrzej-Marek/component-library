@@ -1,6 +1,6 @@
 import React from "react";
 import { NumericFormat, NumericFormatProps } from "react-number-format";
-import Input, { InputProps } from "../input/Input";
+import { InputProps, Input } from "../input/Input";
 
 export type Currency = "PLN" | "USD" | "EUR";
 
@@ -23,7 +23,10 @@ type CurrencyInputProps = {
   currency: Currency;
 } & NumericFormatProps<InputProps>;
 
-const CurrencyInput = ({ currency, ...inputProps }: CurrencyInputProps) => {
+export const CurrencyInput = ({
+  currency,
+  ...inputProps
+}: CurrencyInputProps) => {
   return (
     <NumericFormat
       {...inputProps}
@@ -35,5 +38,3 @@ const CurrencyInput = ({ currency, ...inputProps }: CurrencyInputProps) => {
     />
   );
 };
-
-export default CurrencyInput;

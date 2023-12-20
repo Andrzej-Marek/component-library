@@ -2,7 +2,7 @@ import React from "react";
 import { CommonIconProp } from "./types";
 import { cn } from "../lib/utils/cn";
 
-const AcademicCap = ({ className }: CommonIconProp) => (
+export const AcademicCap = ({ className }: CommonIconProp) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -18,5 +18,3 @@ const AcademicCap = ({ className }: CommonIconProp) => (
     />
   </svg>
 );
-
-export default AcademicCap;

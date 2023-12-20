@@ -1,7 +1,7 @@
 import React, { ReactNode, useId } from "react";
-import Icon from "../icon/Icon";
 import { cn } from "../../lib/utils/cn";
 import { CommonSize } from "../../lib/types/componet-size";
+import { Icon } from "../icon/Icon";
 
 type CheckboxVariant = "primary" | "success";
 type CheckboxSize = CommonSize;
@@ -31,7 +31,7 @@ export interface CheckboxProps
   helperText?: ReactNode;
 }
 
-const Checkbox = ({
+export const Checkbox = ({
   label,
   helperText,
   variant = "primary",
@@ -86,5 +86,3 @@ const Checkbox = ({
     </div>
   );
 };
-
-export default Checkbox;

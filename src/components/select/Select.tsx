@@ -4,18 +4,18 @@ import ReactSelect, {
   OptionProps,
   Props as ReactSelectProps,
 } from "react-select";
-import Icon from "../icon/Icon";
 import ReactSelectDeclaration from "react-select/dist/declarations/src/Select";
 import { SelectOption, isGroupOption } from "./select.types";
 import { cn } from "../../lib/utils/cn";
-import Checkbox from "../checkbox/Checkbox";
+import { Icon } from "../icon/Icon";
+import { Checkbox } from "../checkbox/Checkbox";
 
 type SelectProps = {
   label: string;
   value?: string | string[];
 } & Omit<ReactSelectProps<SelectOption>, "value">;
 
-const Select = ({ value, label, ...props }: SelectProps) => {
+export const Select = ({ value, label, ...props }: SelectProps) => {
   const randomId = useId();
   const ref =
     useRef<

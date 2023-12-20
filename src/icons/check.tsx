@@ -2,7 +2,7 @@ import React from "react";
 import { CommonIconProp } from "./types";
 import { cn } from "../lib/utils/cn";
 
-const CheckIcon = (props: CommonIconProp) => {
+export const CheckIcon = (props: CommonIconProp) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -18,5 +18,3 @@ const CheckIcon = (props: CommonIconProp) => {
     </svg>
   );
 };
-
-export default CheckIcon;

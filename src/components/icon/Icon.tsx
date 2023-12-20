@@ -14,7 +14,7 @@ const importIcon = (icon: IconVariant) =>
     )
   );
 
-const Icon = ({ className, icon }: IconProps) => {
+export const Icon = ({ className, icon }: IconProps) => {
   const [currentIcon, setCurrentIcon] = useState<ReactNode>();
 
   useEffect(() => {
@@ -28,5 +28,3 @@ const Icon = ({ className, icon }: IconProps) => {
 
   return <Suspense>{currentIcon}</Suspense>;
 };
-
-export default Icon;

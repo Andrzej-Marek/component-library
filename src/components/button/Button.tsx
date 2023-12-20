@@ -1,8 +1,8 @@
 import React, { ReactNode } from "react";
-import Icon from "../icon/Icon";
 import { IconVariant } from "../icon/icon-list";
 import { cn } from "../../lib/utils/cn";
 import { CommonSize } from "../../lib/types/componet-size";
+import { Icon } from "../icon/Icon";
 
 export type ButtonVariant =
   | "primary"

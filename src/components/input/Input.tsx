@@ -43,7 +43,7 @@ const inputVariantStyles: Record<
   },
 };
 
-const Input = ({
+export const Input = ({
   suffix,
   prefix,
   name,
@@ -127,5 +127,3 @@ const Input = ({
     </div>
   );
 };
-
-export default Input;

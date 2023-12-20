@@ -85,7 +85,7 @@ const Input = ({
       {!!prefix && (
         <div
           className={cn(
-            "absolute top-0  left-0 mt-4 ml-2 text-gray-400",
+            "absolute top-0 left-0 mt-4 ml-2 text-gray-400",
             styles.prefix
           )}
         >

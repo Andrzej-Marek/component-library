@@ -1,30 +1,23 @@
-import React, { ReactNode, lazy, useEffect, useState } from "react";
-import { Suspense } from "react";
-import { IconVariant, icons } from "./icon-list";
+import React, { useEffect, useState } from "react";
+import { IconVariant } from "./icon-list";
 
 type IconProps = {
   icon: IconVariant;
   className?: string;
 };
 
-const importIcon = (icon: IconVariant) =>
-  lazy(() =>
-    import(`../../icons/${icons[icon]}`).catch(
-      () => import(`../../icons/academic-cap`)
-    )
-  );
-
 export const Icon = ({ className, icon }: IconProps) => {
-  const [currentIcon, setCurrentIcon] = useState<ReactNode>();
+  const [importedComponent, setImportedComponent] = useState<any>(null);
 
   useEffect(() => {
-    async function loadIcon() {
-      const ImportedIcon = await importIcon(icon);
-      setCurrentIcon(<ImportedIcon className={className} />);
-    }
+    const importComponent = async () => {
+      const module = await import(`../../assets/icons/${icon}.svg?react`);
+      const AnotherComponent = module.default;
+      setImportedComponent(<AnotherComponent className={className} />);
+    };
 
-    loadIcon();
-  }, [icon, className]);
+    importComponent();
+  }, []);
 
-  return <Suspense>{currentIcon}</Suspense>;
+  return importedComponent;
 };

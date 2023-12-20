@@ -50,7 +50,7 @@ export const Primary: Story = {
 export const PrimaryIcon: Story = {
   args: {
     children: "Primary button",
-    icon: "academic-cap",
+    icon: "check",
   },
 };
 

@@ -1,6 +1,6 @@
 {
   "name": "@Andrzej-Marek/component-library",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "dist/index.umd.js",
   "module": "dist/index.mjs",
@@ -44,8 +44,10 @@
     "@Andrzej-Marek:registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
+    "@vitejs/plugin-react": "4.2.1",
     "clsx": "2.0.0",
     "react-number-format": "5.3.1",
-    "react-select": "5.8.0"
+    "react-select": "5.8.0",
+    "vite-plugin-svgr": "4.2.0"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@Andrzej-Marek/component-library",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "",
   "main": "dist/index.umd.js",
   "module": "dist/index.mjs",
@@ -10,7 +10,9 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "build": "vite build && tsc",
+    "clean": "rm -rf src/icons && rm -rf dist",
+    "svgr": "svgr --icon --title-prop --no-dimensions --typescript -d src/icons src/assets/icons",
+    "build": "npm run clean && npm run svgr && vite build && tsc",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -28,6 +30,7 @@
     "@storybook/react": "8.0.0-alpha.3",
     "@storybook/react-vite": "8.0.0-alpha.3",
     "@storybook/test": "8.0.0-alpha.3",
+    "@svgr/cli": "8.1.0",
     "@types/react": "18.2.45",
     "@vitejs/plugin-react": "4.2.1",
     "autoprefixer": "10.4.16",

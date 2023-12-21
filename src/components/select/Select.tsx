@@ -1,4 +1,3 @@
-"use client";
 import React, { useId, useRef, useState } from "react";
 import ReactSelect, {
   GroupBase,
@@ -8,8 +7,8 @@ import ReactSelect, {
 import ReactSelectDeclaration from "react-select/dist/declarations/src/Select";
 import { SelectOption, isGroupOption } from "./select.types";
 import { cn } from "../../lib/utils/cn";
-import { Icon } from "../icon/Icon";
 import { Checkbox } from "../checkbox/Checkbox";
+import { CheckIcon } from "lucide-react";
 
 type SelectProps = {
   label: string;
@@ -153,9 +152,7 @@ const CustomOption = ({
         }
       )}
     >
-      {!isMulti && isSelected && (
-        <Icon icon="check" className="text-primary w-5 h-5" />
-      )}
+      {!isMulti && isSelected && <CheckIcon className="text-primary w-5 h-5" />}
       {isMulti && <Checkbox checked={isSelected} readOnly />}
       {data.renderOption ? data.renderOption() : children}
     </div>

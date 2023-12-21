@@ -1,7 +1,7 @@
 import React, { ReactNode, useId } from "react";
 import { cn } from "../../lib/utils/cn";
 import { CommonSize } from "../../lib/types/componet-size";
-import { Icon } from "../icon/Icon";
+import { CheckIcon } from "@/icons";
 
 type CheckboxVariant = "primary" | "success";
 type CheckboxSize = CommonSize;
@@ -60,8 +60,7 @@ export const Checkbox = ({
           {...inputProps}
         />
         <div className="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
-          <Icon
-            icon="check"
+          <CheckIcon
             className={cn("h-3.5 w-3.5 font-semibold", sizeStyle.icon)}
           />
         </div>

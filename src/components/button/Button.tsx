@@ -1,8 +1,7 @@
 import React, { ReactNode } from "react";
-import { IconVariant } from "../icon/icon-list";
 import { cn } from "../../lib/utils/cn";
 import { CommonSize } from "../../lib/types/componet-size";
-import { Icon } from "../icon/Icon";
+import { SVGIcon } from "@/lib/types/svg-icon";
 
 export type ButtonVariant =
   | "primary"
@@ -15,7 +14,7 @@ export interface ButtonProps extends React.ComponentProps<"button"> {
   children: ReactNode;
   size?: ButtonSize;
   variant?: ButtonVariant;
-  icon?: IconVariant;
+  icon?: SVGIcon;
 }
 
 const sizesStyles: Record<ButtonSize, { button: string; icon: string }> = {
@@ -38,7 +37,7 @@ const variantStyles: Record<ButtonVariant, { button: string }> = {
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { variant = "primary", children, size = "default", icon, ...props },
+    { variant = "primary", children, size = "default", icon: Icon, ...props },
     ref
   ) => {
     const styles = variantStyles[variant];
@@ -58,7 +57,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           sizes.button
         )}
       >
-        {icon && <Icon icon={icon} className={sizes.icon} />}
+        {Icon && <Icon className={sizes.icon} />}
         {children}
         {!props.disabled && (
           <div className="absolute inset-0 h-full w-full scale-0 rounded transition-all duration-300 group-hover:scale-100 group-hover:bg-light/30"></div>

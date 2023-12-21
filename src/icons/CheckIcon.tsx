@@ -4,7 +4,7 @@ interface SVGRProps {
   title?: string;
   titleId?: string;
 }
-const SvgCheck = ({
+const SvgCheckIcon = ({
   title,
   titleId,
   ...props
@@ -14,7 +14,7 @@ const SvgCheck = ({
     fill="none"
     stroke="currentColor"
     strokeWidth={1.5}
-    className="check_svg__w-6 check_svg__h-6"
+    className="check-icon_svg__w-6 check-icon_svg__h-6"
     data-slot="icon"
     viewBox="0 0 24 24"
     aria-labelledby={titleId}
@@ -28,4 +28,4 @@ const SvgCheck = ({
     />
   </svg>
 );
-export default SvgCheck;
+export default SvgCheckIcon;

@@ -1,21 +1,21 @@
 import React, { ReactNode } from "react";
-import { IconVariant } from "../icon/icon-list";
+import { CommonSize } from "../../lib/types/component-size";
 import { cn } from "../../lib/utils/cn";
-import { CommonSize } from "../../lib/types/componet-size";
-import { Icon } from "../icon/Icon";
 
-export type ButtonVariant =
+type ButtonVariant =
   | "primary"
   | "primary-outline"
   | "secondary"
   | "secondary-outline";
 
-export type ButtonSize = CommonSize;
-export interface ButtonProps extends React.ComponentProps<"button"> {
+type ButtonSize = CommonSize;
+interface ButtonProps extends React.ComponentProps<"button"> {
   children: ReactNode;
   size?: ButtonSize;
+  icon?: React.ComponentType<{
+    className?: string;
+  }>;
   variant?: ButtonVariant;
-  icon?: IconVariant;
 }
 
 const sizesStyles: Record<ButtonSize, { button: string; icon: string }> = {
@@ -24,7 +24,6 @@ const sizesStyles: Record<ButtonSize, { button: string; icon: string }> = {
   large: { button: "py-4 px-5 ", icon: "w-6 h-6" },
 };
 
-// link: "text-primary underline-offset-4 hover:underline",
 const variantStyles: Record<ButtonVariant, { button: string }> = {
   primary: { button: "bg-primary text-light" },
   secondary: { button: "bg-secondary text-light" },
@@ -36,9 +35,9 @@ const variantStyles: Record<ButtonVariant, { button: string }> = {
   },
 };
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { variant = "primary", children, size = "default", icon, ...props },
+    { variant = "primary", children, size = "default", icon: Icon, ...props },
     ref
   ) => {
     const styles = variantStyles[variant];
@@ -58,7 +57,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           sizes.button
         )}
       >
-        {icon && <Icon icon={icon} className={sizes.icon} />}
+        {Icon && <Icon className={sizes.icon} />}
         {children}
         {!props.disabled && (
           <div className="absolute inset-0 h-full w-full scale-0 rounded transition-all duration-300 group-hover:scale-100 group-hover:bg-light/30"></div>
@@ -67,3 +66,5 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     );
   }
 );
+
+export { Button, ButtonProps, ButtonSize, ButtonVariant };

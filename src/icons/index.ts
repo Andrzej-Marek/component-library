@@ -1,2 +1,2 @@
-export { default as AcademicCap } from "./AcademicCap";
-export { default as Check } from "./Check";
+export { default as AcademicCapIcon } from "./AcademicCapIcon";
+export { default as CheckIcon } from "./CheckIcon";

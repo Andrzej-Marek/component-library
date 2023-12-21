@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "./Button";
+import { CheckIcon } from "../../icons";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -12,11 +13,11 @@ const meta = {
   },
 
   argTypes: {
-    icon: {
-      control: "radio",
-      options: ["academic-cap"],
-      defaultValue: "academic-cap",
-    },
+    // icon: {
+    //   control: "radio",
+    //   options: ["academic-cap"],
+    //   defaultValue: "academic-cap",
+    // },
     disabled: {
       control: "boolean",
       defaultValue: false,
@@ -50,7 +51,8 @@ export const Primary: Story = {
 export const PrimaryIcon: Story = {
   args: {
     children: "Primary button",
-    icon: "check",
+    icon: CheckIcon,
+    // icon: "check",
   },
 };
 

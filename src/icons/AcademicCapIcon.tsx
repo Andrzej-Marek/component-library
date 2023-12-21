@@ -4,7 +4,7 @@ interface SVGRProps {
   title?: string;
   titleId?: string;
 }
-const SvgAcademicCap = ({
+const SvgAcademicCapIcon = ({
   title,
   titleId,
   ...props
@@ -14,7 +14,7 @@ const SvgAcademicCap = ({
     fill="none"
     stroke="currentColor"
     strokeWidth={1.5}
-    className="academic-cap_svg__w-6 academic-cap_svg__h-6"
+    className="academic-cap-icon_svg__w-6 academic-cap-icon_svg__h-6"
     data-slot="icon"
     viewBox="0 0 24 24"
     aria-labelledby={titleId}
@@ -28,4 +28,4 @@ const SvgAcademicCap = ({
     />
   </svg>
 );
-export default SvgAcademicCap;
+export default SvgAcademicCapIcon;

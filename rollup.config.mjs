@@ -1,6 +1,5 @@
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
-import copy from "rollup-plugin-copy";
 
 import svgr from "@svgr/rollup";
 import postcss from "rollup-plugin-postcss";
@@ -29,9 +28,6 @@ export default [
       },
     ],
     plugins: [
-      copy({
-        targets: [{ src: "src/assets/icons/*", dest: "dist/assets/icons" }],
-      }),
       peerDepsExternal(),
       svgr(),
       resolve({ extensions: [".js", ".ts", ".tsx", ".svg"] }),

@@ -1,3 +1,4 @@
+"use client";
 import React, { useId, useRef, useState } from "react";
 import ReactSelect, {
   GroupBase,
@@ -143,15 +144,18 @@ const CustomOption = ({
     <div
       onClick={() => selectOption(data)}
       className={cn(
-        "px-2 py-2 flex items-center gap-1",
+        "flex items-center gap-1",
         isDisabled ? "cursor-not-allowed" : "cursor-pointer",
         {
+          "px-2 py-2": !isMulti,
           "bg-primary-100 ": isSelected,
           "bg-gray-100": isFocused,
         }
       )}
     >
-      {!isMulti && isSelected && <Icon icon="check" className="text-primary" />}
+      {!isMulti && isSelected && (
+        <Icon icon="check" className="text-primary w-5 h-5" />
+      )}
       {isMulti && <Checkbox checked={isSelected} readOnly />}
       {data.renderOption ? data.renderOption() : children}
     </div>

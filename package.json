@@ -1,6 +1,6 @@
 {
   "name": "@Andrzej-Marek/component-library",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "dist/index.umd.js",
   "module": "dist/index.mjs",
@@ -29,6 +29,7 @@
     "@storybook/react-vite": "8.0.0-alpha.3",
     "@storybook/test": "8.0.0-alpha.3",
     "@types/react": "18.2.45",
+    "@vitejs/plugin-react": "4.2.1",
     "autoprefixer": "10.4.16",
     "postcss": "8.4.32",
     "react": "18.2.0",
@@ -44,8 +45,13 @@
     "@Andrzej-Marek:registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "4.2.1",
+    "@radix-ui/react-popover": "1.0.7",
+    "@radix-ui/react-slot": "1.0.2",
+    "class-variance-authority": "0.7.0",
     "clsx": "2.0.0",
+    "date-fns": "2.30.0",
+    "lucide-react": "0.299.0",
+    "react-day-picker": "8.9.1",
     "react-number-format": "5.3.1",
     "react-select": "5.8.0",
     "vite-plugin-svgr": "4.2.0"

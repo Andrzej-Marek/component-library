@@ -1,4 +1,4 @@
-import "./global.css";
-
 /// <reference types="vite-plugin-svgr/client" />
+
+import "./global.css";
 export * from "./components";

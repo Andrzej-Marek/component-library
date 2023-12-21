@@ -1,39 +1,47 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+module.exports = {
+  // darkMode: ["class"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
     extend: {
       colors: {
         dark: "#000",
-        light: "#FFF",
-        white: "#FFF",
-        panel: "#F5F5F5",
-        gray: {
-          200: "#E1E1E1",
-          LIGHT: "#B3B3B3",
-          DEFAULT: "#828282",
-          disabled: "#EBEBE4",
+        light: {
+          DEFAULT: "#fff",
+          foreground: "#000",
         },
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
         primary: {
           100: "#DBE7FE",
-          DEFAULT: "#0B7DDA",
-          700: "#173E8E",
-          900: "#0F2655",
+          DEFAULT: "#0b7dda",
+          foreground: "#fff",
         },
         secondary: {
-          DEFAULT: "#0CDAAC",
-          // DEFAULT: "#5DB84B",
+          DEFAULT: "#0cdaac",
+          foreground: "#fff",
         },
       },
-
       keyframes: {
         "accordion-down": {
-          from: { height: "0" },
+          from: { height: 0 },
           to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
+          to: { height: 0 },
         },
       },
       animation: {

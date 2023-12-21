@@ -6,6 +6,7 @@
     "strict": true,
     "skipLibCheck": true,
 
+    "baseUrl": ".",
     "jsx": "react",
     "module": "ESNext",
     "declaration": true,
@@ -15,7 +16,7 @@
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true,
     "paths": {
-      "src/*": ["./src/*"]
+      "@/*": ["./src/*"]
     }
   }
 }

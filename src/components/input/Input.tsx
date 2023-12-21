@@ -1,5 +1,7 @@
+"use client";
+
+import { cn } from "@/lib/utils";
 import React, { ReactNode, useMemo } from "react";
-import { cn } from "../../lib/utils/cn";
 
 type NativeInputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -77,9 +79,13 @@ export const Input = ({
         placeholder=" "
         className={cn(
           "peer mt-0 block w-full appearance-none border-2  rounded bg-transparent px-3 pb-1 pt-6 focus:outline-none focus:ring-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none",
-          { "pr-12": !!suffix },
+          {
+            "pr-12": !!suffix,
+          },
           { "pl-6": !!prefix },
-          styles.input
+
+          styles.input,
+          inputProps.className
         )}
       />
       {!!prefix && (

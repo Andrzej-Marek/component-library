@@ -1,6 +1,6 @@
-export const icons = {
-  "academic-cap": "academic-cap",
-  check: "check",
+export const iconComponentNameMap = {
+  "academic-cap": "AcademicCap",
+  check: "Check",
 };
 
-export type IconVariant = keyof typeof icons;
+export type IconVariant = keyof typeof iconComponentNameMap;

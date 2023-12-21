@@ -1,6 +1,6 @@
 {
   "name": "@Andrzej-Marek/component-library",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -10,16 +10,19 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
+    "clean": "rm -rf src/icons && rm -rf dist",
+    "svgr": "svgr --icon --title-prop --no-dimensions --typescript -d src/icons src/assets/icons",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "rollup": "rollup -c",
-    "build": "rollup -c"
+    "build": "npm run clean && npm run svgr && rollup -c"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@rollup/plugin-commonjs": "25.0.7",
     "@rollup/plugin-node-resolve": "15.2.3",
+    "@rollup/plugin-terser": "0.4.4",
     "@rollup/plugin-typescript": "11.1.5",
     "@storybook/addon-essentials": "7.6.6",
     "@storybook/addon-interactions": "7.6.6",
@@ -30,6 +33,7 @@
     "@storybook/react": "7.6.6",
     "@storybook/react-webpack5": "7.6.6",
     "@storybook/test": "7.6.6",
+    "@svgr/cli": "8.1.0",
     "@svgr/rollup": "8.1.0",
     "@svgr/webpack": "8.1.0",
     "@types/react": "18.2.45",
@@ -37,10 +41,9 @@
     "css-loader": "6.8.1",
     "postcss": "8.4.32",
     "postcss-loader": "7.3.3",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
     "rollup": "4.9.1",
     "rollup-plugin-dts": "6.1.0",
+    "rollup-plugin-peer-deps-external": "2.2.4",
     "rollup-plugin-postcss": "4.0.2",
     "storybook": "7.6.6",
     "style-loader": "3.3.3",
@@ -48,6 +51,10 @@
     "tailwindcss": "3.3.6",
     "tailwindcss-animate": "1.0.7",
     "typescript": "5.3.3"
+  },
+  "peerDependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "publishConfig": {
     "@Andrzej-Marek:registry": "https://npm.pkg.github.com"

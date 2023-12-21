@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { IconVariant } from "./icon-list";
+import { IconVariant, iconComponentNameMap } from "./icon-list";
+import Check from "../../assets/icons/check.svg";
 
 type IconProps = {
   icon: IconVariant;
@@ -11,7 +12,7 @@ export const Icon = ({ className, icon }: IconProps) => {
 
   useEffect(() => {
     const importComponent = async () => {
-      const module = await import(`../../assets/icons/${icon}.svg`);
+      const module = await import(`../../icons/${iconComponentNameMap[icon]}`);
       const AnotherComponent = module.default;
       setImportedComponent(<AnotherComponent className={className} />);
     };

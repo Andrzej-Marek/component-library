@@ -11,7 +11,7 @@ export const Icon = ({ className, icon }: IconProps) => {
 
   useEffect(() => {
     const importComponent = async () => {
-      const module = await import(`../../assets/icons/${icon}.svg?react`);
+      const module = await import(`../../assets/icons/${icon}.svg`);
       const AnotherComponent = module.default;
       setImportedComponent(<AnotherComponent className={className} />);
     };

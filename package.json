@@ -1,53 +1,60 @@
 {
   "name": "@Andrzej-Marek/component-library",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
-  "main": "dist/index.umd.js",
-  "module": "dist/index.mjs",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "build": "vite build && tsc",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "rollup": "rollup -c",
+    "build": "rollup -c"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@storybook/addon-a11y": "7.6.5",
-    "@storybook/addon-actions": "8.0.0-alpha.3",
-    "@storybook/addon-essentials": "8.0.0-alpha.3",
-    "@storybook/addon-interactions": "8.0.0-alpha.3",
-    "@storybook/addon-links": "8.0.0-alpha.3",
-    "@storybook/addon-mdx-gfm": "8.0.0-alpha.3",
+    "@rollup/plugin-commonjs": "25.0.7",
+    "@rollup/plugin-node-resolve": "15.2.3",
+    "@rollup/plugin-typescript": "11.1.5",
+    "@storybook/addon-essentials": "7.6.6",
+    "@storybook/addon-interactions": "7.6.6",
+    "@storybook/addon-links": "7.6.6",
     "@storybook/addon-onboarding": "1.0.10",
-    "@storybook/blocks": "8.0.0-alpha.3",
-    "@storybook/react": "8.0.0-alpha.3",
-    "@storybook/react-vite": "8.0.0-alpha.3",
-    "@storybook/test": "8.0.0-alpha.3",
+    "@storybook/addon-styling-webpack": "0.0.5",
+    "@storybook/blocks": "7.6.6",
+    "@storybook/react": "7.6.6",
+    "@storybook/react-webpack5": "7.6.6",
+    "@storybook/test": "7.6.6",
+    "@svgr/rollup": "8.1.0",
+    "@svgr/webpack": "8.1.0",
     "@types/react": "18.2.45",
     "autoprefixer": "10.4.16",
+    "css-loader": "6.8.1",
     "postcss": "8.4.32",
+    "postcss-loader": "7.3.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "storybook": "8.0.0-alpha.3",
+    "rollup": "4.9.1",
+    "rollup-plugin-dts": "6.1.0",
+    "rollup-plugin-postcss": "4.0.2",
+    "storybook": "7.6.6",
+    "style-loader": "3.3.3",
     "tailwind-merge": "2.1.0",
     "tailwindcss": "3.3.6",
     "tailwindcss-animate": "1.0.7",
-    "typescript": "5.3.3",
-    "vite": "5.0.9"
+    "typescript": "5.3.3"
   },
   "publishConfig": {
     "@Andrzej-Marek:registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "4.2.1",
     "clsx": "2.0.0",
     "react-number-format": "5.3.1",
-    "react-select": "5.8.0",
-    "vite-plugin-svgr": "4.2.0"
+    "react-select": "5.8.0"
   }
 }

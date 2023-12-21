@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { IconVariant, iconComponentNameMap } from "./icon-list";
-import Check from "../../assets/icons/check.svg";
+import loadable from "@loadable/component";
 
 type IconProps = {
   icon: IconVariant;
@@ -8,17 +8,13 @@ type IconProps = {
 };
 
 export const Icon = ({ className, icon }: IconProps) => {
-  const [importedComponent, setImportedComponent] = useState<any>(null);
+  const Check = loadable(
+    () => import(`../../icons/${iconComponentNameMap[icon]}`)
+  );
 
-  useEffect(() => {
-    const importComponent = async () => {
-      const module = await import(`../../icons/${iconComponentNameMap[icon]}`);
-      const AnotherComponent = module.default;
-      setImportedComponent(<AnotherComponent className={className} />);
-    };
-
-    importComponent();
-  }, []);
-
-  return importedComponent;
+  return (
+    <Suspense fallback="...">
+      <Check className={className} />
+    </Suspense>
+  );
 };

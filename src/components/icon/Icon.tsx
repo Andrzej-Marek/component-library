@@ -1,6 +1,5 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IconVariant, iconComponentNameMap } from "./icon-list";
-import loadable from "@loadable/component";
 
 type IconProps = {
   icon: IconVariant;
@@ -8,13 +7,19 @@ type IconProps = {
 };
 
 export const Icon = ({ className, icon }: IconProps) => {
-  const Check = loadable(
-    () => import(`../../icons/${iconComponentNameMap[icon]}`)
-  );
+  const [importedComponent, setImportedComponent] = useState<any>(null);
 
-  return (
-    <Suspense fallback="...">
-      <Check className={className} />
-    </Suspense>
-  );
+  useEffect(() => {
+    const importComponent = async () => {
+      const module = await import(
+        `../assets/icons/${iconComponentNameMap[icon]}`
+      );
+      const AnotherComponent = module.default;
+      setImportedComponent(<AnotherComponent className={className} />);
+    };
+
+    importComponent();
+  }, []);
+
+  return importedComponent;
 };

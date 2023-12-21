@@ -1,6 +1,6 @@
 {
   "name": "@Andrzej-Marek/component-library",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -43,6 +43,7 @@
     "postcss": "8.4.32",
     "postcss-loader": "7.3.3",
     "rollup": "4.9.1",
+    "rollup-plugin-copy": "3.5.0",
     "rollup-plugin-dts": "6.1.0",
     "rollup-plugin-peer-deps-external": "2.2.4",
     "rollup-plugin-postcss": "4.0.2",

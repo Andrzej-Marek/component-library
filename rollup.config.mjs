@@ -7,10 +7,12 @@ import postcss from "rollup-plugin-postcss";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import terser from "@rollup/plugin-terser";
 
-import typescript from "@rollup/plugin-typescript";
+// import typescript from "rollup-plugin-typescript2";
+
 import dts from "rollup-plugin-dts";
 
 import pcg from "./package.json" assert { type: "json" };
+import typescript from "@rollup/plugin-typescript";
 
 export default [
   {
@@ -27,13 +29,25 @@ export default [
         sourcemap: true,
       },
     ],
+    external: ["react", "react-dom"],
     plugins: [
       peerDepsExternal(),
       svgr(),
-      resolve({ extensions: [".js", ".ts", ".tsx", ".svg"] }),
+      resolve(),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
-      postcss(),
+      postcss({
+        config: {
+          path: "./postcss.config.js",
+        },
+        extensions: [".css"],
+        minimize: true,
+        // modules: true, // <--- this line
+        // extract: true,
+        inject: {
+          insertAt: "top",
+        },
+      }),
 
       terser(),
     ],
